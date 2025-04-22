@@ -1,0 +1,25 @@
+.swiper {
+    height: 100vh;
+    width: 100vw;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: maroon; /* Change arrow color */
+}
+
+.swiper-pagination-bullet {
+    background: maroon;
+    opacity: 0.5; /* optional: makes inactive dots lighter */
+  }
+  
+  /* Active (current slide) dot color */
+  .swiper-pagination-bullet-active {
+    background: maroon;
+    opacity: 1;
+  }
+
+.home-img {
+    opacity: 50%;
+    object-fit: fill;
+}

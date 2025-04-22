@@ -1,0 +1,18 @@
+img {
+	aspect-ratio: 1 /1;
+	width: 100%;
+	object-fit: cover;
+	display: block;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	z-index: 1;
+}
+
+figcaption {
+	font-size: 14px;
+	font-weight: 400;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	z-index: 1;
+}

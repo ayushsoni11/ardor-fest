@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+
+.domain-section {
+    height: 100vh;
+    color: white;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.domain-container {
+    width: 100%;
+    /* background-color: blue; */
+    /* width: 820px; */
+    height : 60vh;
+    display: flex;
+    gap: 10px;
+    margin-inline: 50px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    /* display: block; */
+}
+
+
+
+.card {
+    /* background-color: yellow; */
+    min-width: 10vw;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+    cursor: pointer;
+    position: relative;
+    transition: flex-grow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --transition-timing: 0.35s;
+    }
+
+    .card:hover {
+        flex-grow: 7;
+    }
+
+    .card>.background {
+        position: absolute;
+        inset: 0;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.4);
+        z-index: 0;
+        transition: var(--transition-timing) ease;
+    }
+
+    .card:hover>.background {
+        filter: brightness(1);
+    }
+
+    .card>.card-content {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 20px;
+        overflow: hidden;
+        transition: var(--transition-timing);
+        z-index: 2;
+    }
+
+    .card:hover>.card-content {
+        inset: 20px;
+        top: auto;
+    }
+
+    .card-content>* {
+        transition: var(--transition-timing);
+    }
+
+    .card-content>.profile-image {
+        min-width: 2vw;
+        max-width: 2vw;
+        height: 2vw;
+        border: 2px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .card:hover .profile-image {
+        border: 1px solid white;
+        min-width : 5vw;
+        max-width: 5vw;
+        height: 5vw;
+        font-size: xx-large;
+
+    }
+
+    .card-content>.title {
+        white-space: pre;
+        margin-left: 10px;
+        translate: 0 100%;
+        opacity: 0;
+    }
+
+    .card:hover .title {
+        opacity: 1;
+        translate: 0 0;
+        font-size: xx-large;
+    }
+
+    .card>.backdrop {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100px;
+        z-index: 1;
+        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    }
