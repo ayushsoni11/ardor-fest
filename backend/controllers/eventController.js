@@ -73,3 +73,13 @@ export const deleteEvent = async (req, res) => {
       .json({ message: "Error deleting event", error: err.message });
   }
 };
+export const getAllEvents = async (req, res) => {
+  try {
+    const events = await Event.find().populate("createdBy", "username email");
+    res.status(200).json(events);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Error fetching all events", error: err.message });
+  }
+};

@@ -8,4 +8,4 @@ const hashPassword = async () => {
 
 hashPassword();
 //password event head - eventhead1
-//super admin- superadmin
+//super admin- admin123
