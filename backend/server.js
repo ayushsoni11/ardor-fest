@@ -5,6 +5,7 @@ import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import registrationRoutes from "./routes/registrationRoutes.js";
+import certificateRoutes from "./routes/certificateRoutes.js";
 
 //app.use("/api/events", eventRoutes);
 
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/events", eventRoutes);
 app.use("/api/registration", registrationRoutes);
+app.use("/api/certificate", certificateRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

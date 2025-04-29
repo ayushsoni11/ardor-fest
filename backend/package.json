@@ -25,6 +25,7 @@
     "multer-storage-cloudinary": "^4.0.0",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.10.0",
+    "puppeteer": "^24.7.2",
     "validator": "^13.15.0"
   },
   "devDependencies": {
