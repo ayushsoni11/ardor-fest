@@ -7,11 +7,11 @@ import { errorMiddleware } from "./middlewares/error.js";
 import fileUpload from "express-fileupload";
 
 const app = express();
-config({ path: "./config/config.env" });
+config({ path: "./config/.env" });
 
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: process.env.FRONTEND_URL,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, //allow cookie
   })
