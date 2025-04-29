@@ -7,9 +7,12 @@ import { errorMiddleware } from "./middleware/error.js";
 import fileUpload from "express-fileupload";
 import registrationRoutes from "./routes/registrationRoutes.js";
 import certificateRoutes from "./routes/certificateRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
 
 const app = express();
-config({ path: "./config/config.env" });
+config({ path: ".env" });
 const cors = require("cors");
 
 app.use(
@@ -32,6 +35,11 @@ app.use(
 );
 
 // Routes
+// app.use("/api/registration", registrationRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/certificate", certificateRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/events", eventRoutes);
 app.use("/api/registration", registrationRoutes);
 app.use("/api/certificate", certificateRoutes);
 

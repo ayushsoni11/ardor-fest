@@ -12,7 +12,7 @@ import certificateRoutes from "./routes/certificateRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use("/api/users", userRoutes);
+//app.use("/api/users", userRoutes);
 app.use(express.json()); //working
 
 // Connect MongoDB
@@ -22,15 +22,15 @@ mongoose
   .catch((err) => console.error("MongoDB connection failed:", err));
 
 // Routes
-app.use("/api/auth", authRoutes);
+// app.use("/api/auth", authRoutes);
+// app.use("/api/events", eventRoutes);
+// app.use("/api/registration", registrationRoutes);
+// app.use("/api/certificate", certificateRoutes);
 
 // Default
 app.get("/", (req, res) => {
   res.send("Server is live!");
 });
-app.use("/api/events", eventRoutes);
-app.use("/api/registration", registrationRoutes);
-app.use("/api/certificate", certificateRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
