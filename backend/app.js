@@ -6,18 +6,19 @@ import { connection } from "./database/connection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 import fileUpload from "express-fileupload";
 import registrationRoutes from "./routes/registrationRoutes.js";
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
-config({ path: "./config/.env" });
+config({ path: ".env" });
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, //allow cookie
   })
 );
-app.use("/api/registration", registrationRoutes);
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -30,5 +31,8 @@ app.use(
 
 connection();
 app.use(errorMiddleware);
+app.use("/api/registration", registrationRoutes);
+app.use('/api/auth', authRoutes);
+
 //app.use("/api/registration", registrationRoutes);
 export default app;
