@@ -57,7 +57,10 @@ export const generateCertificate = async (req, res) => {
 
     const cloudinaryURL = await uploadCertificateToCloudinary(pdfPath);
 
-    fs.unlinkSync(pdfPath);
+    // After uploading to Cloudinary...
+    if (fs.existsSync(pdfPath)) {
+      fs.unlinkSync(pdfPath);
+    }
 
     res.status(200).json({
       success: true,

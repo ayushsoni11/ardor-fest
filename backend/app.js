@@ -1,20 +1,21 @@
 import express from "express";
-import { config } from "dotenv";
+import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { connection } from "./database/connection.js";
-import { errorMiddleware } from "./middleware/error.js";
 import fileUpload from "express-fileupload";
-import registrationRoutes from "./routes/registrationRoutes.js";
-import certificateRoutes from "./routes/certificateRoutes.js";
+import { errorMiddleware } from "./middleware/error.js";
+
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
+import registrationRoutes from "./routes/registrationRoutes.js";
+import certificateRoutes from "./routes/certificateRoutes.js";
 
+// Config
+dotenv.config();
 const app = express();
-config({ path: ".env" });
-const cors = require("cors");
 
+// Middlewares
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
@@ -22,7 +23,6 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,15 +35,18 @@ app.use(
 );
 
 // Routes
-// app.use("/api/registration", registrationRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/certificate", certificateRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/registration", registrationRoutes);
 app.use("/api/certificate", certificateRoutes);
 
-connection();
+// Test route
+app.get("/", (req, res) => {
+  res.send("Server is live!");
+});
+
+// Error handling
 app.use(errorMiddleware);
 
 export default app;

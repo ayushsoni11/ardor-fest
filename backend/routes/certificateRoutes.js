@@ -11,7 +11,7 @@ router.post(
   generateCertificate
 );
 
-// Testing route (optional)
+// Testing route
 // router.post("/generate", generateCertificate);
 
 export default router;
