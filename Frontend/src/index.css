@@ -12,39 +12,39 @@
   --hue: 14;
   --first-color: hsl(var(--hue), 91%, 54%);
   --first-color-alt: hsl(var(--hue), 91%, 50%);
-  /* --title-color: hsl(var(--hue), 4%, 100%); */
-  /* --title-color : #303056; */
+  /* --title-color: hsl(var(--hue), 4%, 100%);
+  --title-color : #303056; */
   --text-color: hsl(var(--hue), 4%, 85%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
   --text-white : white;
 
-  /*Red gradient*/
+  
   /* --body-color: linear-gradient(
     90deg,
     hsl(338, 67%, 11%) 0%,
     hsl(281, 63%, 10%) 100%
-  ); */
-  /* --body-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
-  --container-color: linear-gradient(to right, #E8CAFB, #6A4FB6); */
-  /* --sub: #ff5b79; */
-    /* --sub : #ffeba7; */
-    /* --sub : #303056; */
+  );
+   --body-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
+  --container-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
+  --sub: #ff5b79; */
+   /* --sub : #ffeba7;
+    --sub : #303056; */
 
     /* --body-color: linear-gradient(to right, #FFF3B0, #F4C430);
 --container-color: linear-gradient(to right, #FFF3B0, #F4C430);
 --title-color: #554C1C;
 --sub: #554C1C; */
 
-/* --body-color: linear-gradient(to right, #D0F0FF, #1E3A8A);
+--body-color: linear-gradient(to right, #D0F0FF, #1E3A8A);
 --container-color: linear-gradient(to right, #D0F0FF, #1E3A8A);
 --title-color: #1E2749;
---sub: #1E2749; */
+--sub: #1E2749;
 
---body-color: linear-gradient(to right, #CCF2F4, #00B8C4);
+/* --body-color: linear-gradient(to right, #CCF2F4, #00B8C4);
 --container-color: linear-gradient(to right, #CCF2F4, #00B8C4);
 --title-color: #114B5F;
 --sub: #114B5F;
---sub-light : #1d9dc8;
+--sub-light : #1d9dc8; */
 
 
 

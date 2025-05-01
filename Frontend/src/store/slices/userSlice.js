@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import * as axios from 'axios';
+import axios from 'axios';
 import {toast} from "react-toastify";
 
 const userSlice = createSlice({
@@ -98,17 +98,18 @@ const userSlice = createSlice({
 export const register = (data) => async(dispatch) => {
     dispatch(userSlice.actions.registerRequest());
     try {
-        const response = await axios.post("register_url", data, {
+        const response = await axios.post("http://localhost:5000/api/auth/register", data, {
             withCredentials : true,
-            header : {"Content-Type": "multipart/form-data"}
+            headers : {"Content-Type": "multipart/form-data"}
         });
-
+        console.log("Done till here");
         dispatch(userSlice.actions.registerSuccess(response.data));
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error) {
         dispatch(userSlice.actions.registerFailed());
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message || error.message || "Something went wrong");
+
         dispatch(userSlice.actions.clearAllErrors());
     }
 }
@@ -116,9 +117,9 @@ export const register = (data) => async(dispatch) => {
 export const login = (data) => async(dispatch) => {
     dispatch(userSlice.actions.loginRequest());
     try {
-        const response = await axios.post("login_url", data, {
+        const response = await axios.post("http://localhost:5000/api/auth/login", data, {
             withCredentials : true,
-            header : {"Content-Type": "application/json"}
+            headers : {"Content-Type": "application/json"}
         });
 
         dispatch(userSlice.actions.loginSuccess(response.data));
@@ -126,20 +127,22 @@ export const login = (data) => async(dispatch) => {
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error) {
         dispatch(userSlice.actions.loginFailed());
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message || error.message || "Something went wrong");
+
         dispatch(userSlice.actions.clearAllErrors());
     }
 }
 // To use reducers of logout in other files we have to create a function : 
 export const logout = () => async (dispatch) => {
     try {
-        const response = await axios.get("logout_route", {withCredentials : true});
+        const response = await axios.get("http://localhost:5000/api/auth/logout", {withCredentials : true});
         dispatch(userSlice.actions.logoutSuccess());
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error) {
         dispatch(userSlice.actions.logoutFailed());
-        toast.error(error.response.data.message);
+        toast.error(error?.response?.data?.message || error.message || "Something went wrong");
+
         dispatch(userSlice.actions.clearAllErrors());
     };
 };
@@ -149,8 +152,8 @@ export const fetchUser = () => async (dispatch) => {
     dispatch(userSlice.actions.fetchUserRequest());
     
     try {
-        const response = await axios.get("get_profile_url", {withCredentials : true});
-        dispatch(userSlice.actions.fetchUserSuccess());
+        const response = await axios.get("http://localhost:5000/api/auth/me", {withCredentials : true});
+        dispatch(userSlice.actions.fetchUserSuccess(response.data));
         dispatch(userSlice.actions.clearAllErrors());
     } catch (error) {
         dispatch(userSlice.actions.fetchUserFailed());

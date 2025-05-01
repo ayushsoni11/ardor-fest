@@ -18,7 +18,7 @@ const app = express();
 // Middlewares
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: process.env.FRONTEND_URL || "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -48,5 +48,4 @@ app.get("/", (req, res) => {
 
 // Error handling
 app.use(errorMiddleware);
-
 export default app;
