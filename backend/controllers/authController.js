@@ -86,8 +86,19 @@ export const loginUser = async (req, res) => {
 };
 export const registerUser = async (req, res) => {
   try {
+    //debug
+    // console.log("Inside registerUser");
+    // console.log("Body:", req.body);
+    // console.log("File:", req.file);
+
     const { username, email, password } = req.body;
     const profilePic = req.file?.path;
+
+    // if (!profilePic) {
+    //   return res
+    //     .status(400)
+    //     .json({ success: false, message: "Profile picture is required" });
+    // }
 
     const existingUser = await User.findOne({ email });
     if (existingUser)

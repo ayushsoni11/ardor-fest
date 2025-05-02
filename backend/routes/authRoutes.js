@@ -11,6 +11,7 @@ import upload from "../config/cloudinaryConfig.js";
 const router = express.Router();
 
 // Register
+// router.post("/register", registerUser);
 router.post("/register", upload.single("profilePic"), registerUser);
 
 // Login
