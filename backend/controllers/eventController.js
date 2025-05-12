@@ -1,5 +1,6 @@
 import Event from "../models/Event.js";
-
+import { v2 as cloudinary } from "cloudinary";
+import mongoose from "mongoose";
 // CREATE
 export const createEvent = async (req, res) => {
   try {
@@ -76,6 +77,16 @@ export const deleteEvent = async (req, res) => {
 export const getAllEvents = async (req, res) => {
   try {
     const events = await Event.find().populate("createdBy", "username email");
+    res.status(200).json(events);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Error fetching all events", error: err.message });
+  }
+};
+export const userEvents = async (req, res) => {
+  try {
+    const events = await Event.find().populate("username email");
     res.status(200).json(events);
   } catch (err) {
     res

@@ -10,6 +10,15 @@ import userRoutes from "./routes/userRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import registrationRoutes from "./routes/registrationRoutes.js";
 import certificateRoutes from "./routes/certificateRoutes.js";
+import multer from "multer";
+
+// const multer = require("multer");
+const upload = multer({
+  dest: "./upload",
+  limits: {
+    fileSize: 1000000,
+  },
+});
 
 // Config
 dotenv.config();
@@ -28,12 +37,12 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  fileUpload({
-    useTempFiles: true,
-    tempFileDir: "/tmp/",
-  })
-);
+// app.use(
+//   fileUpload({
+//     useTempFiles: true,
+//     tempFileDir: "/tmp/",
+//   })
+// );
 
 // Routes
 app.use("/api/auth", authRoutes);
