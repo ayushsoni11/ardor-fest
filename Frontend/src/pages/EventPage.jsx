@@ -1,5 +1,6 @@
 import Navbar from '@/components/LandingPage/Navbar';
-import React from 'react'
+import React from 'react';
+import EventCard from '@/components/EventPage/EventCard';
 
 const EventPage = () => {
 
@@ -46,6 +47,7 @@ const EventPage = () => {
   return (
     <div>
       <Navbar />
+      <EventCard />
     </div>
   )
 }

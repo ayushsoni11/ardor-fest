@@ -35,7 +35,7 @@ export const getMe = async (req, res) => {
 export const signup = async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    const profilePic = req.file?.path;
+    const profilePic = req.files?.profilePic;
 
     const existingUser = await User.findOne({ email });
     if (existingUser)
@@ -54,9 +54,43 @@ export const signup = async (req, res) => {
     res.status(201).json({ message: "User registered successfully!" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server Error", error: error.message });
+    res.status(500).json({ message: "Server Error", error: err.message });
   }
 };
+
+// export const signup = async (req, res) => {
+//   try {
+//     const { username, email, password } = req.body;
+//     const profilePic = req.files?.profilePic;
+
+//     if (!username || !email || !password || !profilePic) {
+//       return res.status(400).json({ message: "All fields are required" });
+//     }
+
+//     const existingUser = await User.findOne({ email });
+//     if (existingUser)
+//       return res.status(400).json({ message: "User already exists" });
+
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     // Optional: Save the file to a folder (e.g., /uploads)
+//     const filePath = `uploads/${Date.now()}-${profilePic.name}`;
+//     await profilePic.mv(filePath);
+
+//     const newUser = await User.create({
+//       username,
+//       email,
+//       password: hashedPassword,
+//       profilePic: filePath,
+//     });
+
+//     res.status(201).json({ message: "User registered successfully!" });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: "Server Error", error: err.message });
+//   }
+// };
+
 
 const JWT_SECRET = process.env.JWT_SECRET; // for now, hardcoded
 

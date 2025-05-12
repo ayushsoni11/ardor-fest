@@ -33,10 +33,11 @@ const eventSlice = createSlice({
     },
 });
 
-const getAllEventItems = () => async(dispatch)=>{
+export const getAllEventItems = () => async(dispatch)=>{
     dispatch(eventSlice.actions.getAllEventItemRequest());
     try {
-        const response = await axios.get("", {withCredentials : true});
+        //Backend 1
+        const response = await axios.get("http://localhost:5000/api/v1/eventItems/allItems", {withCredentials : true});
         dispatch(eventSlice.actions.getAllEventItemSuccess(response.data.items)); // i have doubt in this line
         dispatch(eventSlice.actions.resetSlice());
     } catch(error) {
