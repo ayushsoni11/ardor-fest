@@ -135,7 +135,7 @@ export const login = (data) => async(dispatch) => {
 // To use reducers of logout in other files we have to create a function : 
 export const logout = () => async (dispatch) => {
     try {
-        const response = await axios.get("http://localhost:5000/api/auth/logout", {withCredentials : true});
+        const response = await axios.post("http://localhost:5000/api/auth/logout", {withCredentials : true});
         dispatch(userSlice.actions.logoutSuccess());
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());

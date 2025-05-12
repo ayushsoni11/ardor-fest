@@ -62,7 +62,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              {isAuthenticated && user && user.role === "Head" && (
+              {isAuthenticated && user && user.role === "event-head" && (
                 <>
                   <li className="nav__item">
                     <Link to={'/my-event-panel'} className="nav__link">

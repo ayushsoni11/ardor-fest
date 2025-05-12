@@ -19,7 +19,7 @@ router.post("/login", loginUser);
 // GET /api/auth/me
 router.get("/me", verifyToken, getMe);
 //logout
-router.post("/logout", verifyToken, logoutUser);
+router.post("/logout", logoutUser); // i have removed verifyToken from here now logout is working properly.
 
 // Protected test route
 router.get(
