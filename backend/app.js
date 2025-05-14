@@ -4,13 +4,13 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { errorMiddleware } from "./middleware/error.js";
-
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
 import registrationRoutes from "./routes/registrationRoutes.js";
 import certificateRoutes from "./routes/certificateRoutes.js";
 import multer from "multer";
+import galleryRoutes from "./routes/galleryRoutes.js";
 
 // const multer = require("multer");
 const upload = multer({
@@ -46,9 +46,10 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/events", eventRoutes);
+app.use("/api/eventItems", eventRoutes);
 app.use("/api/registration", registrationRoutes);
 app.use("/api/certificate", certificateRoutes);
+app.use("/api/gallery", galleryRoutes);
 
 // Test route
 app.get("/", (req, res) => {

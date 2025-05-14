@@ -32,6 +32,7 @@ export const authorizeRoles = (...roles) => {
     if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: "Forbidden: Access denied" });
     }
+    //pass control to next middleware , atak jayegi vrna
     next();
   };
 };

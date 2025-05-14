@@ -86,7 +86,7 @@ export const getAllEvents = async (req, res) => {
 };
 export const userEvents = async (req, res) => {
   try {
-    const events = await Event.find().populate("username email");
+    const events = await Event.find().populate();
     res.status(200).json(events);
   } catch (err) {
     res

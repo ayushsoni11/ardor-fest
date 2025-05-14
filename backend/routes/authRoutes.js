@@ -25,7 +25,7 @@ router.post("/logout", verifyToken, logoutUser);
 router.get(
   "/protected",
   verifyToken,
-  authorizeRoles("admin", "event-head"),
+  authorizeRoles("super-admin", "event-head"),
   (req, res) => {
     res.json({ message: `Welcome ${req.user.role}, you're authorized.` });
   }
