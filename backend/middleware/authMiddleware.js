@@ -1,30 +1,25 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
-const JWT_SECRET = process.env.JWT_SECRET;
-
 // Verify Token
 export const verifyToken = async (req, res, next) => {
-  const authHeader = req.headers.authorization;
+  const { token } = req.cookies;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Unauthorized: No token" });
+  if (!token) {
+    return next(new ErrorHandler("Authentication failed. Please login.", 401));
   }
 
-  const token = authHeader.split(" ")[1];
-
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await User.findById(decoded.id).select("-password");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decoded.id);
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+    if (!req.user) {
+      return next(new ErrorHandler("User not found. Please login again.", 401));
     }
 
-    req.user = user;
     next();
-  } catch (err) {
-    return res.status(401).json({ message: "Unauthorized: Invalid token" });
+  } catch (error) {
+    return next(new ErrorHandler("Invalid or expired token.", 401));
   }
 };
 export const authorizeRoles = (...roles) => {
@@ -37,46 +32,22 @@ export const authorizeRoles = (...roles) => {
   };
 };
 
-export const protect = async (req, res, next) => {
-  let token;
+// const authMiddleware = (req, res, next) => {
+//   const authHeader = req.headers.authorization;
 
-  try {
-    const authHeader = req.headers.authorization;
+//   if (!authHeader) {
+//     return res.status(401).json({ message: "Unauthorized" });
+//   }
 
-    if (authHeader) {
-      token = authHeader.split(" ")[1];
+//   const token = authHeader.split(" ")[1];
 
-      // Verify token
-      const decoded = jwt.verify(token, JWT_SECRET);
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     req.userId = decoded.id;
+//     next();
+//   } catch (error) {
+//     res.status(401).json({ message: "Invalid Token" });
+//   }
+// };
 
-      // Attach user to request
-      req.user = await User.findById(decoded.id).select("-password");
-
-      next();
-    } else {
-      return res.status(401).json({ message: "Not authorized, no token" });
-    }
-  } catch (err) {
-    console.error(err);
-    res.status(401).json({ message: "Not authorized, token failed" });
-  }
-};
-const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
-
-  const token = authHeader.split(" ")[1];
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.userId = decoded.id;
-    next();
-  } catch (error) {
-    res.status(401).json({ message: "Invalid Token" });
-  }
-};
-
-export default authMiddleware;
+// export default authMiddleware;

@@ -5,14 +5,14 @@ import {
   getAllRegistrations,
 } from "../controllers/registrationController.js";
 import { verifyToken } from "../middleware/authMiddleware.js";
-import { authorizeRoles, protect } from "../middleware/authMiddleware.js";
+import { authorizeRoles } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 // Public route for registering
 router.post(
   "/register/:eventId",
-  protect,
+  // protect,
   authorizeRoles("user", "event-head"),
   registerForEvent
 );

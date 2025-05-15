@@ -19,7 +19,7 @@ router.post("/login", loginUser);
 // GET /api/auth/me
 router.get("/me", verifyToken, getMe);
 //logout
-router.post("/logout", verifyToken, logoutUser);
+router.get("/logout", logoutUser);
 
 // Protected test route
 router.get(
