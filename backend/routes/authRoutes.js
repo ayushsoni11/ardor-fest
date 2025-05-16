@@ -21,13 +21,15 @@ router.post("/login", loginUser);
 // GET /api/auth/me
 router.get("/me", verifyToken, getMe);
 //logout
-router.post("/logout", logoutUser); // i have removed verifyToken from here now logout is working properly.
+
+router.get("/logout", logoutUser);
+
 
 // Protected test route
 router.get(
   "/protected",
   verifyToken,
-  authorizeRoles("admin", "event-head"),
+  authorizeRoles("super-admin", "event-head"),
   (req, res) => {
     res.json({ message: `Welcome ${req.user.role}, you're authorized.` });
   }
