@@ -1,10 +1,12 @@
 import express from "express";
+
 import {
   getMe,
   registerUser,
   loginUser,
   logoutUser,
 } from "../controllers/authController.js";
+
 import { verifyToken, authorizeRoles } from "../middleware/authMiddleware.js";
 
 import upload from "../config/cloudinaryConfig.js";

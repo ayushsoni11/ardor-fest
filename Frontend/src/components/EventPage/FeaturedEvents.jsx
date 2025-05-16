@@ -9,9 +9,10 @@ const FeaturedEvents = () => {
       { 
 
       // backend 2
-        allEvents.slice(0,3).map(element=>{
+        allEvents.slice(0,8).map((element)=>{
           return(
-            <EventCard imgSrc="https://i.postimg.cc/jjBSrfnQ/poster1-img.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
+            <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
+            
           )
         })
       }

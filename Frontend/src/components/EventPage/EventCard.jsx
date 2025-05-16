@@ -23,8 +23,7 @@ const EventCard = ({imgSrc, title, desc, date, venue, category}) => {
             <ul>
               <li><img src="https://i.postimg.cc/jqgkqhSb/cast-11.jpg" alt="Marco Andrews" title="Marco Andrews"/></li>
               <li><img src="https://i.postimg.cc/8P7X7r7r/cast-12.jpg" alt="Rebecca Floyd" title="Rebecca Floyd"/></li>
-              <li><img src="https://i.postimg.cc/2SvHwRFk/cast-13.jpg
-    " alt="Antonio Herrera" title="Antonio Herrera"/></li>
+              <li><img src="https://i.postimg.cc/2SvHwRFk/cast-13.jpg" alt="Antonio Herrera" title="Antonio Herrera"/></li>
             </ul>
           </div>
         </div>

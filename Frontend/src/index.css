@@ -19,21 +19,21 @@
   --text-white : white;
 
   
-  /* --body-color: linear-gradient(
+   /* --body-color: linear-gradient(
     90deg,
     hsl(338, 67%, 11%) 0%,
     hsl(281, 63%, 10%) 100%
-  );
+  ); */
    --body-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
   --container-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
-  --sub: #ff5b79; */
+  --sub: #302354;
    /* --sub : #ffeba7;
     --sub : #303056; */
 
-    --body-color: linear-gradient(to right, #FFF3B0, #F4C430);
+    /* --body-color: linear-gradient(to right, #FFF3B0, #F4C430);
 --container-color: linear-gradient(to right, #FFF3B0, #F4C430);
 --title-color: #554C1C;
---sub: #554C1C;
+--sub: #554C1C; */
 
 /* --body-color: linear-gradient(to right, #D0F0FF, #1E3A8A);
 --container-color: linear-gradient(to right, #D0F0FF, #1E3A8A);
@@ -50,8 +50,6 @@
 --container-color: linear-gradient(to right, #3B0A0A, #8B0000);  
 --title-color: #4B0000;       
 --sub: #660000;                */
-
-
 
 
 
