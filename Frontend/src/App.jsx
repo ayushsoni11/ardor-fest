@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import LandingPage from "./pages/LandingPage";
+import CreateEvent from './components/EventPage/CreateEvent';
 import Team from "./pages/Team";
 import GalleryPage from "./pages/GalleryPage";
 import ContactUs from "./pages/ContactUs";
@@ -16,12 +17,12 @@ import EventPage from './pages/EventPage';
 const App = () => {
   //it will take care of user logout na ho jaage refresh krne pr
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch( fetchUser() );
-    dispatch( getAllEventItems() );
-  },[]);
+  // useEffect(()=>{
+  //   dispatch( fetchUser() );
+  //   dispatch( getAllEventItems() );
+  // },[]);
   
   return (
 
@@ -31,6 +32,8 @@ const App = () => {
         <Route path = '/sign-up' element = {<SignUp />} />
         <Route path='/gallery' element={<GalleryPage />} />
         <Route path='/events' element={<EventPage />}/>
+        <Route path="/events/create-event" element={<CreateEvent />} />
+
         {/* <Route path='/team' element={<Team />} />
         
         <Route path='/contactUs' element={<ContactUs />} />

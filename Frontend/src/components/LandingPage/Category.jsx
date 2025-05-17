@@ -4,27 +4,37 @@ import './Category.css';
 const Category = () => {
   return (
     <>
-          {/* <!-- CATEGORY --> */}
-          <section class="section category">
-        <h2 class="section__title">Favorite Scare <br/> Category </h2>
-        <div class="category__container container grid">
-          <div class="category__data">
-            <img src="https://assets.codepen.io/7773162/category1-img.png" alt="" class="category__img"/>
-              <h3 class="category__title">Ghosts</h3>
-              <p class="category__description">Choose the ghosts, the scariest there are.</p>
+      <section className="section category">
+        <h2 className="section__title">Explore the Magic of <br /> Our Fests</h2>
+        <div className="category__container container grid">
+          <div className="category__data">
+            <img src="https://assets.codepen.io/7773162/category1-img.png" alt="" className="category__img" />
+            <h3 className="category__title">Dance</h3>
+            <p className="category__description">Feel the rhythm, own the spotlight.</p>
           </div>
-          <div class="category__data">
-            <img src="https://assets.codepen.io/7773162/category2-img.png" alt="" class="category__img"/>
-              <h3 class="category__title">Pumpkins</h3>
-              <p class="category__description">You look at the scariest pumpkins there is.</p>
+          <div className="category__data">
+            <img src="https://assets.codepen.io/7773162/category2-img.png" alt="" className="category__img" />
+            <h3 className="category__title">Singing</h3>
+            <p className="category__description">Let your voice echo with passion.</p>
           </div>
-          <div class="category__data">
-            <img src="https://assets.codepen.io/7773162/category3-img.png" alt="" class="category__img"/>
-              <h3 class="category__title">Witch Hat</h3>
-              <p class="category__description">Pick the most stylish witch hats out there.</p>
+          <div className="category__data">
+            <img src="https://assets.codepen.io/7773162/category3-img.png" alt="" className="category__img" />
+            <h3 className="category__title">Sports</h3>
+            <p className="category__description">Where champions rise and records fall.</p>
+          </div>
+          <div className="category__data">
+            <img src="https://assets.codepen.io/7773162/category1-img.png" alt="" className="category__img" />
+            <h3 className="category__title">Battle of Bands</h3>
+            <p className="category__description">Clash of chords, rhythm, and rockstars.</p>
+          </div>
+          <div className="category__data">
+            <img src="https://assets.codepen.io/7773162/category2-img.png" alt="" className="category__img" />
+            <h3 className="category__title">Art and Craft</h3>
+            <p className="category__description">Unleash your imagination on canvas and beyond.</p>
           </div>
         </div>
-      </section> 
+      </section>
+
     </>
   )
 }

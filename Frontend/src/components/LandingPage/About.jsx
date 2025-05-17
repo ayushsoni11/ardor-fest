@@ -66,24 +66,27 @@ const About = () => {
       </section> */}
 
 <section className="about-section">
-      <div className="image-collage">
-        {imageUrls.map((url, index) => (
-          <img key={index} src={url} alt={`Collage ${index}`} className="collage-img" />
-        ))}
-      </div>
+  <div className="about-container">
+    <div className="about-content">
+      <h1>About Ardor 2K26</h1>
+      <p>
+        Ardor is our flagship fest, a vibrant celebration of culture, talent, and togetherness.
+        Here, memories are made, skills are showcased, and the spirit of youth thrives!
+      </p>
+      <p>
+        Join us in celebrating the blend of art, creativity, and innovation with events,
+        performances, and unforgettable moments.
+      </p>
+    </div>
+    <div className="about-image">
+      <img
+        src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80"
+        alt="Fest celebration"
+      />
+    </div>
+  </div>
+</section>
 
-      <div className="about-content">
-        <h1>About Ardor 2K26</h1>
-        <p>
-          Ardor is our flagship fest, a vibrant celebration of culture, talent, and togetherness.
-          Here, memories are made, skills are showcased, and the spirit of youth thrives!
-        </p>
-        <p>
-          Join us in celebrating the blend of art, creativity, and innovation with events,
-          performances, and unforgettable moments.
-        </p>
-      </div>
-    </section>
     </>
   )
 }

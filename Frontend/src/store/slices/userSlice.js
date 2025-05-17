@@ -26,6 +26,7 @@ const userSlice = createSlice({
             state.loading = false;
             state.isAuthenticated= true;
             state.user = action.payload.user;
+            localStorage.setItem("loginuser",JSON.stringify(action.payload.user));
         },
 
         registerFailed(state,action) {
@@ -44,6 +45,7 @@ const userSlice = createSlice({
             state.loading = false;
             state.isAuthenticated= true;
             state.user = action.payload.user;
+            localStorage.setItem("loginuser",JSON.stringify(action.payload.user));
         },
 
         loginFailed(state,action) {
@@ -75,6 +77,8 @@ const userSlice = createSlice({
         logoutSuccess(state,action) {
             state.isAuthenticated = false;
             state.user = {};
+            localStorage.removeItem("token");
+            localStorage.removeItem("loginuser");
         },
 
         //reducer
@@ -103,6 +107,10 @@ export const register = (data) => async(dispatch) => {
             headers : {"Content-Type": "multipart/form-data"}
         });
         console.log("Done till here");
+
+        const {token}=response.data;
+        localStorage.setItem("token",token);
+        
         dispatch(userSlice.actions.registerSuccess(response.data));
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());
@@ -122,6 +130,10 @@ export const login = (data) => async(dispatch) => {
             headers : {"Content-Type": "application/json"}
         });
 
+        const {token}=response.data;
+        localStorage.setItem("token",token);
+        // localStorage.setItem("loginuser",JSON.stringify(loggedInUser));
+
         dispatch(userSlice.actions.loginSuccess(response.data));
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());
@@ -135,7 +147,7 @@ export const login = (data) => async(dispatch) => {
 // To use reducers of logout in other files we have to create a function : 
 export const logout = () => async (dispatch) => {
     try {
-        const response = await axios.post("http://localhost:5000/api/auth/logout", {withCredentials : true});
+        const response = await axios.get("http://localhost:5000/api/auth/logout", {withCredentials : true});
         dispatch(userSlice.actions.logoutSuccess());
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());

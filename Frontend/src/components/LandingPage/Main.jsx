@@ -5,9 +5,9 @@ import Category from './Category';
 import About from './About';
 import TrickorTreat from './TrickorTreat';
 import Discount from './Discount';
-import NewsLetter from './NewsLetter';
-import NewArrival from './NewArrival';
+import NewsLetter from './ContactUs';
 import Spinner from '../Spinner';
+import FeaturedEvents from '../EventPage/FeaturedEvents';
 
 const Main = () => {
   return (
@@ -16,6 +16,7 @@ const Main = () => {
 
         <Home />
         <Category />
+        {/* <FeaturedEvents /> */}
         {/* <TrickorTreat />
         <Discount />
         <NewArrival /> */}

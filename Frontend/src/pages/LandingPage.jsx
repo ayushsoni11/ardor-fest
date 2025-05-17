@@ -11,7 +11,6 @@ const LandingPage = () => {
      <Navbar />
    
      <Main />
-     <EventCard />
      
      <ScrollUp />
     </div>

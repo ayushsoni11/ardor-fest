@@ -1,4 +1,4 @@
-.about-section {
+/* .about-section {
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -48,7 +48,7 @@
   padding: 10rem;
   width : 100%;
   height: 100%;
- background-color: rgba(0, 0, 0, 0.5); /* translucent overlay */
+ background-color: rgba(0, 0, 0, 0.5); /* translucent overlay 
   border-radius: 16px;
   pointer-events: none;
 }
@@ -62,4 +62,105 @@
   font-size : var(--h2-font-size);
 }
 
+ */
+
+.about-section {
+  background: linear-gradient(135deg, #ff6b6b, #f06595, #845ef7, #5c7cfa);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  color: #fff;
+  padding: 5rem 2rem;
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.about-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px;
+  color: #ffe066;
+  text-shadow: 2px 2px #000;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  font-family: 'Poppins', sans-serif;
+  color: #f8f9fa;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px #000;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 4px solid #ffe066;
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+}
 

@@ -1,0 +1,72 @@
+.create-event-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.create-event-form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-event-form h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.create-event-form label {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.create-event-form input,
+.create-event-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  resize: none;
+}
+
+.create-event-form textarea {
+  height: 80px;
+}
+
+.create-event-form button {
+  margin-top: 2rem;
+  padding: 0.8rem;
+  background-color: #2e86de;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-event-form button:hover {
+  background-color: #1b4f72;
+}
+
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.success {
+  color: green;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
