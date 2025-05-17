@@ -18,7 +18,7 @@ router.post(
 );
 
 // Admin or event-head can view registrations
-
+//ahahahahaha
 router.get(
   "/all",
   verifyToken,
