@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/eventItems", eventRoutes);
+app.use("/api/events", eventRoutes);
 app.use("/api/registration", registrationRoutes);
 app.use("/api/certificate", certificateRoutes);
 app.use("/api/gallery", galleryRoutes);

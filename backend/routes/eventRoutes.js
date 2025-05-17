@@ -12,21 +12,23 @@ import { getAllEvents } from "../controllers/eventController.js";
 
 const router = express.Router();
 
-router.post("/create", verifyToken, authorizeRoles("event-head"), createEvent); // Add event
-router.get("/myevents", verifyToken, authorizeRoles("event-head"), getMyEvents); // View my events
-router.put(
-  "/update/:id",
-  verifyToken,
-  authorizeRoles("event-head"),
-  updateEvent
-); // Update event
-router.delete(
-  "/delete/:id",
-  verifyToken,
-  authorizeRoles("event-head"),
-  deleteEvent
-); // Delete event
+// All events
+router.get('/all-events', getAllEvents);
 
-router.get("/all", verifyToken, authorizeRoles("super-admin"), getAllEvents);
-router.get("/allItems", verifyToken, userEvents);
+// Add event
+// router.post("/create-event", verifyToken, authorizeRoles, createEvent); 
+router.post("/create-event", verifyToken, authorizeRoles("event-head"), createEvent);
+
+// Edit event
+router.put("/edit-event/:id", verifyToken, authorizeRoles("event-head"), updateEvent);
+
+// Delete event
+router.delete("/delete-event/:id", verifyToken, authorizeRoles("event-head"), deleteEvent);
+
+// My events
+router.get("/my-events", verifyToken, authorizeRoles("event-head"), getMyEvents);
+
+// All Items 
+router.get("/all-items", verifyToken, userEvents);
+
 export default router;

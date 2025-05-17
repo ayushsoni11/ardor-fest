@@ -3,10 +3,11 @@ import mongoose from "mongoose";
 const eventSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
-    description: String,
+    desc: String,
     date: Date,
     venue: String,
     image: String, // optional
+    category : String,
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

@@ -1,44 +1,48 @@
 import Event from "../models/Event.js";
 import { v2 as cloudinary } from "cloudinary";
 import mongoose from "mongoose";
-// CREATE
-export const createEvent = async (req, res) => {
+
+
+// All Events 
+export const getAllEvents = async (req, res) => {
   try {
-    const { title, description, date, venue, image } = req.body;
+    const events = await Event.find().populate("createdBy", "username email");
+    res.status(200).json(events);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ message: "Error fetching all events", error: err.message });
+  }
+};
+// Create Event
+export const createEvent = async (req, res) => {
+  console.log("print the body:",req.body);
+  try {
+    const { title, desc, date, venue, image ,category } = req.body;
 
     const newEvent = new Event({
       title,
-      description,
+      desc,
       date,
       venue,
       image,
+      category,
       createdBy: req.user._id, // user from verifyToken
     });
 
     await newEvent.save();
     res
       .status(201)
-      .json({ message: "Event created successfully", event: newEvent });
+      .json({success : true, message: "Event created successfully", event: newEvent });
   } catch (err) {
+    console.log("inside error");
     res
       .status(500)
-      .json({ message: "Error creating event", error: err.message });
+      .json({ success : false, message: "problem in creating event", error: err.message });
   }
 };
 
-// READ - Get all events by current user
-export const getMyEvents = async (req, res) => {
-  try {
-    const events = await Event.find({ createdBy: req.user._id });
-    res.status(200).json(events);
-  } catch (err) {
-    res
-      .status(500)
-      .json({ message: "Error fetching events", error: err.message });
-  }
-};
-
-// UPDATE
+// Edit Event
 export const updateEvent = async (req, res) => {
   try {
     const event = await Event.findOneAndUpdate(
@@ -57,7 +61,7 @@ export const updateEvent = async (req, res) => {
   }
 };
 
-// DELETE
+// Delete event
 export const deleteEvent = async (req, res) => {
   try {
     const event = await Event.findOneAndDelete({
@@ -74,16 +78,20 @@ export const deleteEvent = async (req, res) => {
       .json({ message: "Error deleting event", error: err.message });
   }
 };
-export const getAllEvents = async (req, res) => {
+
+// My Events
+export const getMyEvents = async (req, res) => {
   try {
-    const events = await Event.find().populate("createdBy", "username email");
+    const events = await Event.find({ createdBy: req.user._id });
     res.status(200).json(events);
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Error fetching all events", error: err.message });
+      .json({ message: "Error fetching events", error: err.message });
   }
 };
+
+// All Items
 export const userEvents = async (req, res) => {
   try {
     const events = await Event.find().populate();
