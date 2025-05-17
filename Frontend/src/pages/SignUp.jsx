@@ -93,7 +93,7 @@ const SignUp = () => {
 							<form onSubmit={handleRegister}>
 								<div className="form-group mt-2 mb-2 profile-box">
 									<img src={
-										profileImagePreview ? profileImagePreview : "/images/dogs.jpg"
+										profileImagePreview ? profileImagePreview : "/images/upload-profile-png.png"
 									} alt="profileImagePreview" className='profileImage' />
 									<input type="file" className='form-style' onChange={imageHandler} />
 

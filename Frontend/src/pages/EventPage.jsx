@@ -1,6 +1,8 @@
 import Navbar from '@/components/LandingPage/Navbar';
-import React from 'react'
-
+import React from 'react';
+import EventCard from '@/components/EventPage/EventCard';
+import FeaturedEvents from '@/components/EventPage/FeaturedEvents';
+import "./EventPage.css";
 const EventPage = () => {
 
   const events = [
@@ -46,7 +48,17 @@ const EventPage = () => {
   return (
     <div>
       <Navbar />
+
+      <div className='event-block'>
+      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
+      
+      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
+
+      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
     </div>
+
+      </div>
+      
   )
 }
 

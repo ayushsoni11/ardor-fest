@@ -1,10 +1,12 @@
 import express from "express";
+
 import {
   getMe,
   registerUser,
   loginUser,
   logoutUser,
 } from "../controllers/authController.js";
+
 import { verifyToken, authorizeRoles } from "../middleware/authMiddleware.js";
 
 import upload from "../config/cloudinaryConfig.js";
@@ -19,7 +21,9 @@ router.post("/login", loginUser);
 // GET /api/auth/me
 router.get("/me", verifyToken, getMe);
 //logout
+
 router.get("/logout", logoutUser);
+
 
 // Protected test route
 router.get(

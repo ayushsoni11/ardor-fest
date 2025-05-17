@@ -26,6 +26,7 @@ router.delete(
   authorizeRoles("event-head"),
   deleteEvent
 ); // Delete event
+
 router.get("/all", verifyToken, authorizeRoles("super-admin"), getAllEvents);
 router.get("/allItems", verifyToken, userEvents);
 export default router;

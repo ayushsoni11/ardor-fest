@@ -1,3 +1,4 @@
+
 //token generation function
 export const sendToken = (user, statusCode, res, message) => {
   const token = user.getJWTToken();
@@ -15,3 +16,4 @@ export const sendToken = (user, statusCode, res, message) => {
     token,
   });
 };
+
