@@ -1,6 +1,6 @@
 import React from 'react'
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -12,17 +12,26 @@ const Navbar = () => {
 
   const { isAuthenticated, user } = useSelector(state => state.user);
 
+  const token=localStorage.getItem("token");
+  // const loggedInUser=localStorage.getItem("loginuser");
+  const storedUser = localStorage.getItem("loginuser");
+  const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   }
+
+
 
   return (
     <div>
       <header className="header " id="header" >
         <nav className="nav container">
-          <a href="#" className="nav__logo"> Utsavya </a>
+          <a href="/" className="nav__logo"> Utsavya </a>
           <div className="nav__menu" id="nav-menu">
             <ul className="nav__list">
 
@@ -51,18 +60,18 @@ const Navbar = () => {
               </li>
 
               <li className="nav__item">
-                <Link to={'/about-us'} className="nav__link">
+                <a href='#about-us' className="nav__link">
                   About Us
-                </Link>
+                </a>
               </li>
 
               <li className="nav__item">
-                <Link to={'/contact-us'} className="nav__link">
+                <a href='#contact-us' className="nav__link">
                   Contact Us
-                </Link>
+                </a>
               </li>
 
-              {isAuthenticated && user && user.role === "event-head" && (
+              {token && loggedInUser && loggedInUser.role === "event-head" && (
                 <>
                   <li className="nav__item">
                     <Link to={'/my-event-panel'} className="nav__link">
@@ -72,7 +81,7 @@ const Navbar = () => {
                 </>
               )}
 
-              {isAuthenticated && user && user.role == "Super Admin" && (
+              {token && loggedInUser && loggedInUser.role == "Super Admin" && (
                 <>
                  <li className="nav__item">
                     <Link to={'/admin-dashboard'} className="nav__link">
@@ -82,7 +91,7 @@ const Navbar = () => {
                 </>
               )}
 
-              {!isAuthenticated ? (
+              {!token ? (
                 <>
                 <Link to={'/sign-up'} className="button button--ghost nav__link">Login</Link>
 
@@ -90,6 +99,8 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+                  <Link to={"/my-profile"} className="nav__link">My Profile</Link>
+                  
                   <button onClick={()=>{handleLogout()}} className="button button--ghost">Logout</button>
                 </>
               )}

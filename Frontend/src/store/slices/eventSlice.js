@@ -23,6 +23,7 @@ const eventSlice = createSlice({
         getAllEventItemFailed(state,action) {
             state.loading = false;
         },
+        
         resetSlice(state,action) {
             state.loading = false;
             state.itemDetails = state.itemDetails;

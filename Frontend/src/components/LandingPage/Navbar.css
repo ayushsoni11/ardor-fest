@@ -47,7 +47,7 @@
       background: var(--container-color);
       top: -150%;
       left: 0;
-      color: #ff5b79;
+      color: var(--sub);
       padding: 3.5rem 0;
       transition: 0.4s;
       z-index: var(--z-fixed);

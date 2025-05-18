@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import "./SignUp.css";
-import {register, login} from '@/store/slices/userSlice.js';
+import {register, login, logout} from '@/store/slices/userSlice.js';
 import Back from '@/components/Back';
 
 const SignUp = () => {
@@ -39,7 +39,7 @@ const SignUp = () => {
 	useEffect(() => {
 		if (isAuthenticated) {
 			navigateTo('/');
-		}
+		} 
 	}, [dispatch, loading, isAuthenticated]);
 
 	const imageHandler = (e) => {

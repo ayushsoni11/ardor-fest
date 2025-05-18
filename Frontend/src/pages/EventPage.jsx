@@ -1,64 +1,64 @@
 import Navbar from '@/components/LandingPage/Navbar';
 import React from 'react';
 import EventCard from '@/components/EventPage/EventCard';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import FeaturedEvents from '@/components/EventPage/FeaturedEvents';
 import "./EventPage.css";
 const EventPage = () => {
 
-  const events = [
-    {
-      id: "dance1",
-      name: "Group Dance Showdown",
-      category: "Cultural",
-      date: "April 20, 2025",
-      venue: "Main Stage",
-      image: "/images/dance.jpg",
-      description: "A dance competition featuring groups of 4–8 students.",
-    },
-    {
-      id: "coding1",
-      name: "CodeSprint",
-      category: "Technical",
-      date: "April 21, 2025",
-      venue: "Lab 2",
-      image: "/images/coding.jpg",
-      description: "Solve real-world problems in a 2-hour coding relay.",
-    },
-    {
-      id: "cricket1",
-      name: "Cricket Tournament",
-      category: "Sports",
-      date: "April 22–24, 2025",
-      venue: "College Ground",
-      image: "/images/cricket.jpg",
-      description: "T20 format cricket tournament for departments.",
-    },
-    {
-      id: "foodfest1",
-      name: "Streets of India",
-      category: "Fun Activities",
-      date: "April 20–22, 2025",
-      venue: "Canteen Lawn",
-      image: "/images/foodfest.jpg",
-      description: "A food carnival with stalls from different states.",
-    },
-    // ...more
-  ];
-  
+  const [events, setEvents] = useState([]);
+
+  //const navigate = useNavigate();
+
+  const loggedInUser = JSON.parse(localStorage.getItem('loginuser'));
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/events/all-events`)
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error("Error fetching events : ", err));
+  }, []);
+
   return (
     <div>
       <Navbar />
 
       <div className='event-block'>
-      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
-      
-      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
 
-      <EventCard imgSrc="images/dogs.jpg" title="Beats to Feats" date="09-04-2026" venue="Central Auditorium" desc="Dance is fun , Dance is great, this dance that dance how dance why dance jai dance vehe dance" category="Dance" />
-    </div>
+        {events.length > 0 ? (
+          events.map((event) => (
+            // <EventCard imgSrc={event.image} title={event.title} venue={event.venue}
+            //   date={event.date} desc={event.desc} category={event.category} key={event._id} />
+
+            <EventCard event={event} key={event._id} />
+          ))
+        ) : (
+          <div className='event-block'>
+            <h2> No Events Available </h2>
+          </div>
+        )}
+
+        {loggedInUser && loggedInUser.role === "event-head" && (
+          <>
+            <Link to="/events/create-event">
+              <button>Create New Event</button>
+            </Link>
+          </>
+        )}
+
+        
+
+
+
+
+
 
       </div>
-      
+
+    </div>
+
   )
 }
 

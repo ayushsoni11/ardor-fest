@@ -13,16 +13,19 @@ import upload from "../config/cloudinaryConfig.js";
 const router = express.Router();
 
 // Register
-// router.post("/register", registerUser);
 router.post("/register", upload.single("profilePic"), registerUser);
 
 // Login
 router.post("/login", loginUser);
+
+// Logout
+router.get("/logout", logoutUser);
+
 // GET /api/auth/me
 router.get("/me", verifyToken, getMe);
 //logout
 
-router.get("/logout", logoutUser);
+
 
 
 // Protected test route

@@ -1,6 +1,6 @@
 /* CATEGORY */
 .category__container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5 , 1fr) !important;
     gap: 1rem 2rem;
   }
   .category__data {
