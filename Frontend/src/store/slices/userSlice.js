@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import {toast} from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const userSlice = createSlice({
     name : "user",
@@ -79,6 +80,7 @@ const userSlice = createSlice({
             state.user = {};
             localStorage.removeItem("token");
             localStorage.removeItem("loginuser");
+            
         },
 
         //reducer
@@ -151,6 +153,7 @@ export const logout = () => async (dispatch) => {
         dispatch(userSlice.actions.logoutSuccess());
         toast.success(response.data.message);
         dispatch(userSlice.actions.clearAllErrors());
+
     } catch (error) {
         dispatch(userSlice.actions.logoutFailed());
         toast.error(error?.response?.data?.message || error.message || "Something went wrong");

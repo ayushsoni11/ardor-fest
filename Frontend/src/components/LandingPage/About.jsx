@@ -65,10 +65,10 @@ const About = () => {
         </div>
       </section> */}
 
-<section className="about-section">
+<section id='about-us' className="about-section">
   <div className="about-container">
     <div className="about-content">
-      <h1>About Ardor 2K26</h1>
+      <h1>About Utsavya</h1>
       <p>
         Ardor is our flagship fest, a vibrant celebration of culture, talent, and togetherness.
         Here, memories are made, skills are showcased, and the spirit of youth thrives!

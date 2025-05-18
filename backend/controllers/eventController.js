@@ -69,13 +69,15 @@ export const deleteEvent = async (req, res) => {
       createdBy: req.user._id,
     });
 
+    console.log(event);
+
     if (!event) return res.status(404).json({ message: "Event not found" });
 
-    res.status(200).json({ message: "Event deleted" });
+    res.status(200).json({   success : true, message: "Event deleted" });
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Error deleting event", error: err.message });
+      .json({success : false, message: "Error deleting event", error: err.message });
   }
 };
 

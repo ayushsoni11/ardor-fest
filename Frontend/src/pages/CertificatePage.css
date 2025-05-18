@@ -1,0 +1,271 @@
+/* Container for the whole certificate generator page */
+
+.certificate-container {
+    margin-top : 120px;
+}
+.certificate-page {
+  width: 100vw;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Georgia', serif;
+  background-color: #f8f9fa;
+}
+
+/* Form styling */
+/* Layout Wrapper */
+.certificate-form {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Form Title */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-family: 'Georgia', serif;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.4);
+}
+
+/* Input Fields */
+.certificate-form input {
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.6);
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  outline: none;
+}
+
+.certificate-form input:focus {
+  border-color: #8e44ad;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+}
+
+/* Submit Button */
+.certificate-form button[type="submit"] {
+  background-color: #8e44ad;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.certificate-form button[type="submit"]:hover {
+  background-color: #732d91;
+  transform: scale(1.03);
+}
+
+/* Responsive Behavior */
+@media (max-width: 600px) {
+  .certificate-form {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .certificate-form input {
+    font-size: 0.95rem;
+  }
+
+  .certificate-form button[type="submit"] {
+    font-size: 0.95rem;
+  }
+}
+
+
+/* Certificate display */
+.certificate {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #f0f2f5;
+}
+
+.certificate-border {
+  border: 10px solid #c9a646;
+  padding: 1rem;
+  background: #fffdf7;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.certificate-inner {
+  border: 2px dashed #aaa;
+  padding: 2.5rem;
+  background: white;
+  position: relative;
+  font-family: 'Georgia', serif;
+  color: #333;
+}
+
+.logo {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.certificate-header {
+  text-align: center;
+}
+
+.certificate-header h2 {
+  font-size: 1.6rem;
+  margin: 0.2rem;
+  color: #2c3e50;
+}
+
+.certificate-header h3 {
+  font-weight: normal;
+  color: #555;
+  margin-top: 0.3rem;
+}
+
+.fest-name {
+  color: #b57f20;
+  font-weight: bold;
+}
+
+.certificate-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 1rem 4rem;
+  color: #000;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+.presented {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  color: #777;
+}
+
+.recipient-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem 0 1.2rem;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.certificate-text {
+  font-size: 1.05rem;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.event-info {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: #444;
+}
+
+.award-section {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.highlight-trophy {
+  font-size: 1.2rem;
+  color: #d17a22;
+}
+
+.position {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c79d1d;
+  margin-top: 0.5rem;
+}
+
+.signature-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.signature {
+  text-align: center;
+  width: 30%;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.signature span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certificate-inner {
+    padding: 1.5rem;
+  }
+
+  .certificate-title {
+    font-size: 1.7rem;
+  }
+
+  .recipient-name {
+    font-size: 1.3rem;
+  }
+
+  .signature-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .signature {
+    width: 100%;
+  }
+}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .certificate-preview {
+    padding: 1.5rem;
+  }
+
+  .certificate-preview h1 {
+    font-size: 1.6rem;
+  }
+
+  .certificate-preview .highlight {
+    font-size: 1.3rem;
+  }
+
+  .certificate-preview .signatures {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .signature-block {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+}

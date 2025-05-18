@@ -24,9 +24,18 @@
     hsl(338, 67%, 11%) 0%,
     hsl(281, 63%, 10%) 100%
   ); */
+  
    --body-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
   --container-color: linear-gradient(to right, #E8CAFB, #6A4FB6);
+  --title-color : #271d42;
   --sub: #302354;
+
+  /* --body-color: linear-gradient(to right, #7e7c7c, #000000);    
+--container-color: linear-gradient(to right, #1a1a1a, #000000);  
+--title-color: #FFFFFF;        
+--sub: #CCCCCC;            */
+
+
    /* --sub : #ffeba7;
     --sub : #303056; */
 

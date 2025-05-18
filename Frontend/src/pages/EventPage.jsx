@@ -10,44 +10,55 @@ const EventPage = () => {
 
   const [events, setEvents] = useState([]);
 
-  const navigate = useNavigate();
-  
+  //const navigate = useNavigate();
+
   const loggedInUser = JSON.parse(localStorage.getItem('loginuser'));
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:5000/api/events/all-events`)
-    .then((res)=>res.json())
-    .then((data)=> setEvents(data))
-    .catch((err)=>console.error("Error fetching events : ", err));
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error("Error fetching events : ", err));
   }, []);
-  
+
   return (
     <div>
       <Navbar />
 
       <div className='event-block'>
 
-      {events.length > 0 ? (
-        events.map((event)=> (
-          <EventCard imgSrc={event.image} title={event.title} venue={event.venue} 
-          date= {event.date} desc={event.desc} category= {event.category} key={event._id}/>
-        ))
-      ) : (
-        <div className='event-block'>
-          <h2> No Events Available </h2> 
-        </div>
-      )}
+        {events.length > 0 ? (
+          events.map((event) => (
+            // <EventCard imgSrc={event.image} title={event.title} venue={event.venue}
+            //   date={event.date} desc={event.desc} category={event.category} key={event._id} />
 
-    <Link to="/events/create-event">
-      <button>Create New Event</button>
-    </Link>
+            <EventCard event={event} key={event._id} />
+          ))
+        ) : (
+          <div className='event-block'>
+            <h2> No Events Available </h2>
+          </div>
+        )}
+
+        {loggedInUser && loggedInUser.role === "event-head" && (
+          <>
+            <Link to="/events/create-event">
+              <button>Create New Event</button>
+            </Link>
+          </>
+        )}
+
+        
 
 
-     
-        </div>
+
+
+
+
+      </div>
 
     </div>
-      
+
   )
 }
 

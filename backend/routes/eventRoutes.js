@@ -23,7 +23,7 @@ router.post("/create-event", verifyToken, authorizeRoles("event-head"), createEv
 router.put("/edit-event/:id", verifyToken, authorizeRoles("event-head"), updateEvent);
 
 // Delete event
-router.delete("/delete-event/:id", verifyToken, authorizeRoles("event-head"), deleteEvent);
+router.delete("/:id", verifyToken, authorizeRoles("event-head"), deleteEvent);
 
 // My events
 router.get("/my-events", verifyToken, authorizeRoles("event-head"), getMyEvents);

@@ -1,0 +1,98 @@
+.show-event-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  max-width: 900px;
+  margin: 120px auto;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.show-event-banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.show-event-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.show-event-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  color: #fff;
+}
+
+.show-event-overlay h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.show-event-overlay p {
+  margin: 4px 0;
+  font-size: 1.1rem;
+}
+
+.show-event-category {
+  display: inline-block;
+  background-color: #ff477e;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.show-event-content {
+  padding: 30px;
+}
+
+.show-event-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.show-event-content p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.show-event-organizers h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.organizer-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.organizer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.organizer-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff477e;
+}
+
+.organizer-card span {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  text-align: center;
+}
