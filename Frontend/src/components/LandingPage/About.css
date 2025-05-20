@@ -1,11 +1,6 @@
 
 .about-section {
-  /* background: linear-gradient(135deg, #ff6b6b, #f06595, #845ef7, #5c7cfa); */
-  /* background-size: 400% 400%; */
-  /* animation: gradientAnimation 10s ease infinite; */
   color: #fff;
-  /* clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%); */
-  /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); */
 }
 
 @keyframes gradientAnimation {
@@ -25,20 +20,18 @@
   height : 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10rem;
+  /* background-color: red; */
 }
 
 .about-content {
-  flex: 1;
-  min-width: 300px;
-  /* backdrop-filter: blur(6px);
-  background: rgba(255, 255, 255, 0.1); */
-  /* border-radius: 20px; */
+  /* flex: 1; */
+  width: 50%;
   padding: 2.5rem;
-  /* border: 2px solid rgba(255, 255, 255, 0.3); */
   text-align: center;
+  /* background-color: yellow; */
 }
 
 .about-content h1 {
@@ -61,10 +54,12 @@
 
 .about-image {
   flex: 1;
-  min-width: 200px;
+  width : 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: blue; */
+
 }
 
 .about-image img {

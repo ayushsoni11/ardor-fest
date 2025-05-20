@@ -51,19 +51,6 @@ const About = () => {
   ];
   return (
     <>
-            {/* <!-- ABOUT --> */}
-      {/* <section class="section about" id="about">
-        <div class="about__container container grid">
-          <div class="about__data">
-            <h2 class="section__title about__title">About Halloween <br/> Night </h2>
-            <p class="about__description">Night of all the saints, or all the dead, is celebrated on October 31 and it is a very fun international celebration, this celebration comes from ancient origins, and is already celebrated by everyone. </p>
-            <a href="#" class="book--now">
-              <img src="https://assets.codepen.io/7773162/svgviewer-output+%281%29_3.svg" alt="" />
-            </a>
-          </div>
-          <img src="https://assets.codepen.io/7773162/about-img.png" alt="" class="about__img"/>
-        </div>
-      </section> */}
 
 <section id='about-us' className="about-section">
   <div className="about-container">
@@ -80,7 +67,7 @@ const About = () => {
     </div>
     <div className="about-image">
       <img
-        src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80"
+        src="https://cdn.pixabay.com/photo/2019/10/06/10/03/team-4529717_1280.jpg"
         alt="Fest celebration"
       />
     </div>

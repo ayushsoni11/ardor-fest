@@ -6,6 +6,10 @@
   .category__data {
     text-align: center;
   }
+
+  .section__title {
+    margin-top : 100px;
+  }
   .category__img {
     width: 120px;
     margin-bottom: var(--mb-0-75);

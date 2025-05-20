@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const { isAuthenticated, user } = useSelector(state => state.user);
 
-  const token=localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   // const loggedInUser=localStorage.getItem("loginuser");
   const storedUser = localStorage.getItem("loginuser");
   const loggedInUser = storedUser ? JSON.parse(storedUser) : null;
@@ -31,91 +31,94 @@ const Navbar = () => {
     <div>
       <header className="header " id="header" >
         <nav className="nav container">
-          <a href="/" className="nav__logo"> Utsavya </a>
+
           <div className="nav__menu" id="nav-menu">
-            <ul className="nav__list">
-
-              <li className="nav__item">
-                <Link to={'/'} className="nav__link  active-link">
-                  Home
-                </Link>
-              </li>
-
-              <li className="nav__item">
-                <Link to={'/events'} className="nav__link">
-                  Events
-                </Link>
-              </li>
-
-              <li className="nav__item">
-                <Link to={'/gallery'} className="nav__link">
-                  Gallery
-                </Link>
-              </li>
-
-              <li className="nav__item">
-                <Link to={'/Team'} className="nav__link">
-                  Team
-                </Link>
-              </li>
-
-              <li className="nav__item">
-                <a href='#about-us' className="nav__link">
-                  About Us
-                </a>
-              </li>
-
-              <li className="nav__item">
-                <a href='#contact-us' className="nav__link">
-                  Contact Us
-                </a>
-              </li>
-
-              {token && loggedInUser && loggedInUser.role === "event-head" && (
-                <>
-                  <li className="nav__item">
-                    <Link to={'/my-event-panel'} className="nav__link">
-                      My Event Panel
-                    </Link>
-                  </li>
-                </>
-              )}
-
-              {token && loggedInUser && loggedInUser.role == "Super Admin" && (
-                <>
-                 <li className="nav__item">
-                    <Link to={'/admin-dashboard'} className="nav__link">
-                      Dashboard
-                    </Link>
-                  </li>
-                </>
-              )}
-
-              {!token ? (
-                <>
-                <Link to={'/sign-up'} className="button button--ghost nav__link">Login</Link>
-
-                <Link to={'/sign-up'} className="button button--ghost nav__link">Sign Up</Link>
-                </>
-              ) : (
-                <>
-                  <Link to={"/my-profile"} className="nav__link">My Profile</Link>
-                  
-                  <button onClick={()=>{handleLogout()}} className="button button--ghost">Logout</button>
-                </>
-              )}
-        
-    
-        
-      </ul>
-            <div className="nav__close" id="nav-close">
-              <i className='bx bx-x'></i>
+            <div>
+              <a href="/" className="nav__logo">
+                <img className='utsavya-logo' src='/images/utsavya-logo.png'></img> </a>
             </div>
-            <img src="https://assets.codepen.io/7773162/nav-img.png" alt="" className="nav__img" />
+
+            <div >
+              <ul className="nav__list" >
+
+                <li className="nav__item">
+                  <Link to={'/'} className="nav__link  active-link">
+                    Home
+                  </Link>
+                </li>
+
+                <li className="nav__item">
+                  <Link to={'/events'} className="nav__link">
+                    Events
+                  </Link>
+                </li>
+
+                <li className="nav__item">
+                  <Link to={'/gallery'} className="nav__link">
+                    Gallery
+                  </Link>
+                </li>
+
+                <li className="nav__item">
+                  <Link to={'/Team'} className="nav__link">
+                    Team
+                  </Link>
+                </li>
+
+                <li className="nav__item">
+                  <a href='#about-us' className="nav__link">
+                    About Us
+                  </a>
+                </li>
+
+                <li className="nav__item">
+                  <a href='#contact-us' className="nav__link">
+                    Contact Us
+                  </a>
+                </li>
+
+                {token && loggedInUser && loggedInUser.role === "event-head" && (
+                  <>
+                    <li className="nav__item">
+                      <Link to={'/my-event-panel'} className="nav__link">
+                        My Event Panel
+                      </Link>
+                    </li>
+                  </>
+                )}
+
+                {token && loggedInUser && loggedInUser.role == "Super Admin" && (
+                  <>
+                    <li className="nav__item">
+                      <Link to={'/admin-dashboard'} className="nav__link">
+                        Dashboard
+                      </Link>
+                    </li>
+                  </>
+                )}
+
+                {!token ? (
+                  <>
+                    <Link to={'/sign-up'} className="button button--ghost nav__link">Login</Link>
+
+                    <Link to={'/sign-up'} className="button button--ghost nav__link">Sign Up</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to={"/my-profile"} className="nav__link">My Profile</Link>
+
+                    <button onClick={() => { handleLogout() }} className="button button--ghost">Logout</button>
+                  </>
+                )}
+
+
+
+              </ul>
+            </div>
+
+              
           </div>
-          <div className="nav__toggle" id="nav-toggle">
-            <i className='bx bx-grid-alt'></i>
-          </div>
+            
         </nav>
       </header>
     </div>

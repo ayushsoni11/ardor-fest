@@ -24,13 +24,11 @@ const EventPage = () => {
   return (
     <div>
       <Navbar />
-
+      <h1>Welcome to Event Section</h1>
       <div className='event-block'>
-
+       
         {events.length > 0 ? (
           events.map((event) => (
-            // <EventCard imgSrc={event.image} title={event.title} venue={event.venue}
-            //   date={event.date} desc={event.desc} category={event.category} key={event._id} />
 
             <EventCard event={event} key={event._id} />
           ))
@@ -40,22 +38,20 @@ const EventPage = () => {
           </div>
         )}
 
+        
+
+      </div>
+
+        <div className='btn-center'>
         {loggedInUser && loggedInUser.role === "event-head" && (
           <>
             <Link to="/events/create-event">
-              <button>Create New Event</button>
+              <button className='btn '>Create New Event</button>
             </Link>
           </>
         )}
-
-        
-
-
-
-
-
-
-      </div>
+        </div>
+      
 
     </div>
 

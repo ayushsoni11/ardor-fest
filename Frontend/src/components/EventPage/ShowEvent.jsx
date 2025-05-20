@@ -55,7 +55,7 @@ const ShowEvent = () => {
       <div className="show-event-banner">
         <img src={event.image} alt={event.title} />
         <div className="show-event-overlay">
-          <h1>{event.title}</h1>
+          <p className='title-heading-event'>{event.title}</p>
           <p>{event.date} • {event.venue}</p>
           <span className="show-event-category">{event.category}</span>
         </div>
@@ -84,9 +84,12 @@ const ShowEvent = () => {
         </div>
       </div>
 
+      <div className='btn-center'> 
       { loggedInUser && loggedInUser.role == "event-head" && (
-         <button onClick={handleDelete}>Delete Event</button>
+         <button className='btn' onClick={handleDelete}>Delete Event</button>
       )}
+      </div>
+      
      
     </div>
     </>

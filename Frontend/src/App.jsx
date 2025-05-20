@@ -17,6 +17,7 @@ import ShowEvent from './components/EventPage/ShowEvent';
 import MyEventPanel from "./pages/MyEventPanel";
 import CertificatePage from './pages/CertificatePage';
 import MyProfile from './pages/MyProfile';
+import NotificationPage from './pages/NotificationPage';
 
 const App = () => {
   //it will take care of user logout na ho jaage refresh krne pr
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/events/:id' element = {<ShowEvent />} />
         <Route path="/my-event-panel" element = { <MyEventPanel/>} />
         <Route path="/my-event-panel/generate-certificate" element = { <CertificatePage/>} />
+        <Route path='/my-event-panel/notificaton' element= {<NotificationPage />} />
 
         {/* <Route path='/team' element={<Team />} />
         

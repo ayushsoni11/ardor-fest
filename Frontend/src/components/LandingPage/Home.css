@@ -9,11 +9,11 @@
 }
 
 .home-box-in {
-  height: 100%;
-  width: 100%;
-  z-index: var(--z-tooltip);
+  height: 80%;
+  width: 80%;
+  z-index: 20;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -21,17 +21,21 @@
   gap : 2rem;
   justify-content: center;
   align-items: center;
-  color : var(--title-color);
+  /* color : var(--title-color); */
+  color : white;
+  
   
 }
 
 .home-box-in h1 {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-black);
-  color : var(--title-color);
+  /* color : var(--title-color); */
+  
   line-height: 109%;
   text-transform: uppercase;
   margin-top : 7rem;
+  font-family: var(--body-font);
 }
 
 .home-box-in h2 {

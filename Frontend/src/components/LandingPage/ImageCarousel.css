@@ -1,0 +1,40 @@
+.carousel-container {
+  width: 100vw;
+  height: 90vh;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top : 80px;
+}
+
+.box-for-opacity {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top : 200;
+    left : 0;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+

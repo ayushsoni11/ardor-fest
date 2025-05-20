@@ -30,8 +30,7 @@
   color: #fff;
 }
 
-.show-event-overlay h1 {
-  margin: 0;
+.show-event-overlay .title-heading-event {
   font-size: 2.5rem;
 }
 

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateEvent = () => {
   const [form, setForm] = useState({
     title: '',
-    description: '',
+    desc: '',
     date: '',
     venue: '',
     category: '',
@@ -21,7 +21,7 @@ const CreateEvent = () => {
   const validate = () => {
     const newErrors = {};
     if (!form.title.trim()) newErrors.title = 'Title is required';
-    if (!form.description.trim()) newErrors.description = 'Description is required';
+    if (!form.desc.trim()) newErrors.desc = 'Description is required';
     if (!form.date.trim()) newErrors.date = 'Date is required';
     if (!form.venue.trim()) newErrors.venue = 'Venue is required';
     if (!form.category.trim()) newErrors.category = 'Category is required';
@@ -61,7 +61,7 @@ const CreateEvent = () => {
       
       setForm({
         title: '',
-        description: '',
+        desc: '',
         date: '',
         venue: '',
         category: '',
@@ -91,12 +91,12 @@ const CreateEvent = () => {
 
         <label>Description</label>
         <textarea
-          name="description"
-          value={form.description}
+          name="desc"
+          value={form.desc}
           onChange={handleChange}
           placeholder="Enter description"
         />
-        {errors.description && <span className="error">{errors.description}</span>}
+        {errors.desc && <span className="error">{errors.desc}</span>}
 
         <label>Date</label>
         <input

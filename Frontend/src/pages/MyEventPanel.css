@@ -1,0 +1,21 @@
+.my-event-panel-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top : 100px;
+    gap : 3rem;
+
+}
+
+.my-event-panel {
+    background-color: var(--gold);
+    color : var(--sub) !important; 
+    border-radius: 20px;
+    margin : auto;
+    padding : 10px;
+}
+
+.my-event-panel h1 {
+    color : var(--sub);
+    text-decoration-line: none !important;
+    font-size: 2rem;
+}

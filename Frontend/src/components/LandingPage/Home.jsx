@@ -1,6 +1,7 @@
 import React from 'react'
 import './Home.css';
 import PhotoCarousel from './PhotoCarousel';
+import ImageCarousel from './ImageCarousel';
 
 
 
@@ -25,7 +26,8 @@ const Home = () => {
           </a>
         </div>
       </div>
-      <PhotoCarousel />
+      {/* <PhotoCarousel /> */}
+      <ImageCarousel />
     </div>
 
   )
