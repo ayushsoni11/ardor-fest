@@ -7,7 +7,7 @@ const eventSchema = new mongoose.Schema(
     date: Date,
     venue: String,
     image: String, // optional
-    category : String,
+    category: String,
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
